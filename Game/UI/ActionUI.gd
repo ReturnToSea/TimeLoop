@@ -1,7 +1,8 @@
 extends Control
 
 @export var action_item_scene: PackedScene  # Assign this in the editor!
-@onready var action_list = $ScrollContainer/VBoxContainer
+@export var player_character: CharacterBody2D
+@onready var action_list = $PanelContainer/ScrollContainer/VBoxContainer
 
 func _ready():
 	$Left.pressed.connect(_on_left_button_pressed)
@@ -30,15 +31,21 @@ func _on_execute_button_pressed():
 		#execute_action(action.action_name)
 	
 	var first_action = action_list.get_child(0)
-	execute_action(first_action.action_name)
-	# Optionally remove the executed action from the list
-	first_action.queue_free()
+	if action_list.get_child_count() > 0:
+		execute_action(first_action.action_name)
+		# Optionally remove the executed action from the list
+		first_action.queue_free()
 
 func execute_action(action_name: String):
 	match action_name:
 		"Left":
-			print("Hi")  # Replace with your "Left" action logic
+			move_character(Vector2(-1, 0))  # Move left
 		"Right":
-			print("Bye")  # Replace with your "Right" action logic
+			move_character(Vector2(1, 0))  # Move right
 		_:
 			push_error("Unknown action: ", action_name)
+
+func move_character(direction: Vector2):
+	if player_character:
+		# Call the move_player function from the player script
+		player_character.move_player(direction)
