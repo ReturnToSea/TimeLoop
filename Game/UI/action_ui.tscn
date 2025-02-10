@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://di71mu5m1d2rj"]
+
+[ext_resource type="Script" path="res://Game/UI/ActionUI.gd" id="1_gw6q0"]
+[ext_resource type="PackedScene" uid="uid://d4anf2t7cw7u6" path="res://Game/UI/action_item.tscn" id="2_mfoop"]
+
+[node name="ActionUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gw6q0")
+action_item_scene = ExtResource("2_mfoop")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_left = 203.0
+offset_top = 1.0
+offset_right = 419.0
+offset_bottom = 473.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Left" type="Button" parent="."]
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 76.0
+
+[node name="Right" type="Button" parent="."]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 80.0
+offset_bottom = 180.0
+
+[node name="Execute" type="Button" parent="."]
+layout_mode = 0
+offset_left = 428.0
+offset_top = -7.0
+offset_right = 505.0
+offset_bottom = 63.0

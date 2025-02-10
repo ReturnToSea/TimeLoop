@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4anf2t7cw7u6"]
+
+[ext_resource type="Script" path="res://Game/UI/action_item.gd" id="1_18528"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_roamo"]
+
+[node name="ActionItem" type="Control"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 6.0
+script = ExtResource("1_18528")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 25.0
+texture = SubResource("CanvasTexture_roamo")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "UP
+"
